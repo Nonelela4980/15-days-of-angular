@@ -1,0 +1,42 @@
+<!-- product.component.html -->
+@if (product!==null) {
+    <div class="w-[400px] bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+        <div class="flex flex-col">
+            <div class="">
+                <img class="w-full h-[300px] object-fit " [src]="product.thumbnail" [alt]="product.title" />
+            </div>
+            <div class="p-8">
+                <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">{{ product.category }}</div>
+                <p class="mt-2 text-gray-500 w-full h-[25px] overflow-hidden overflow-ellipsis">{{ product.description }}</p>
+                <div class="mt-4">
+                    <div class="flex items-center">
+                        <span class="text-gray-600 font-semibold">{{ product.price| currency:'ZAR' :'code'}}</span>
+
+                        @if (product.discountPercentage > 0) {
+                        <span class="ml-2 text-sm text-gray-400 line-through">{{
+                            product.price + (product.price * product.discountPercentage) / 100 }}
+                        </span>
+                        }
+    
+                        @if (product.discountPercentage > 0) {
+                        <span class="ml-2 text-green-500">
+                            {{ product.discountPercentage }}% off
+                        </span>
+                        }
+                    </div>
+                    <div class="mt-2 flex items-center">
+                        <span class="text-gray-600">{{ product.rating }} stars</span>
+                        <span class="mx-2 text-gray-400">&#8226;</span>
+                        <span class="text-gray-600">{{ product.stock }} in stock</span>
+                    </div>
+                    <div class="mt-4">
+                        <button
+                            class="bg-indigo-500 text-white px-4 py-2 rounded-md hover:bg-indigo-600 focus:outline-none focus:bg-indigo-600">
+                            Add to cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,19 @@
+<div>
+    <div class="">
+
+
+    </div>
+    <div class="flex flex-wrap gap-2">
+        @if (products$ | async; as products) {
+            @if (products.state === LOADING_STATE) {
+                <div class="flex justify-center items-center mt-20">
+                    <div class="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gray-900"></div>
+                </div>
+            }@else{
+            @for (product of products.data; track $index) {
+            <app-product [product]="product"></app-product>
+            }
+            }
+        }
+    </div>
+</div>

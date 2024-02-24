@@ -1,6 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
+import { ProductListingComponent } from './products/product-listing/product-listing.component';
 
 interface User{
   id:string,
@@ -10,7 +11,7 @@ interface User{
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,NavbarComponent],
+  imports: [RouterOutlet,NavbarComponent,ProductListingComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
